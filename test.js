@@ -19,6 +19,10 @@ describe('asyncemit', function () {
     assume(asyncemit).is.a('function');
   });
 
+  it('returns it self instead of a boolean', function () {
+    assume(ee.asyncemit('foo')).equals(ee);
+  });
+
   it('works with `sync` emitters', function (next) {
     next = assume.plan(2, next);
     var foo;
