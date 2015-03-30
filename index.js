@@ -14,7 +14,13 @@ module.exports = function asyncemit() {
     , event = args.shift()
     , async = args.length
     , fn = args.pop()
-    , selfie = this;
+    , selfie = this
+    , listeners;
+
+  listeners = this._events[event] || [];
+  if (listeners && !Array.isArray(listeners)) {
+    listeners = [ listeners ];
+  }
 
   /**
    * Simple
@@ -47,7 +53,7 @@ module.exports = function asyncemit() {
         each(stack);
       })
     );
-  })(this.listeners(event));
+  })(listeners);
 
   return this;
 };
