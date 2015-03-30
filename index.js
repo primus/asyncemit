@@ -17,13 +17,13 @@ module.exports = function asyncemit() {
     , selfie = this
     , listeners;
 
-  listeners = this._events[event] || [];
+  listeners = (this._events || {})[event] || [];
   if (listeners && !Array.isArray(listeners)) {
     listeners = [ listeners ];
   }
 
   /**
-   * Simple
+   * Simple async helper utility.
    *
    * @param {Array} stack The various of event listeners are async emitted.
    * @api public

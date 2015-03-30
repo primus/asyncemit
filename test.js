@@ -20,7 +20,7 @@ describe('asyncemit', function () {
   });
 
   it('returns it self instead of a boolean', function () {
-    assume(ee.asyncemit('foo')).equals(ee);
+    assume(ee.asyncemit('foo', function () {})).equals(ee);
   });
 
   it('works with `sync` emitters', function (next) {
