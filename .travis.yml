@@ -8,7 +8,7 @@ node_js:
 before_install:
   - 'if [ "${TRAVIS_NODE_VERSION}" == "0.8" ] || [ "${TRAVIS_NODE_VERSION}" == "0.9" ] ; then npm install -g npm@2.6.0; fi'
 script:
-  - "npm run test && npm run integration"
+  - "npm run test-travis"
 matrix:
   fast_finish: true
   allow_failures:
