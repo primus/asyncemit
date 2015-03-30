@@ -1,0 +1,27 @@
+{
+  "name": "asyncemit",
+  "version": "0.0.0",
+  "description": "Asynchronously emit event an event based on the arguments length.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/primus/asyncemit"
+  },
+  "keywords": [
+    "async",
+    "emit",
+    "event",
+    "emitter",
+    "eventemitter",
+    "asyncemit"
+  ],
+  "author": "Arnout Kazemier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/primus/asyncemit/issues"
+  },
+  "homepage": "https://github.com/primus/asyncemit"
+}
