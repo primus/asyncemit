@@ -24,7 +24,7 @@ module is used:
 
 See the following example:
 
-```
+```js
 var asyncemit = require('asyncemit')
   , EventEmitter = require('eventemitter3');
 
