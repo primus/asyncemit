@@ -25,8 +25,8 @@ module.exports = function asyncemit() {
   /**
    * Simple async helper utility.
    *
-   * @param {Array} stack The various of event listeners are async emitted.
-   * @api public
+   * @param {Array} stack The listeners for the specified event.
+   * @api private
    */
   (function each(stack) {
     if (!stack.length) return fn();
@@ -53,7 +53,7 @@ module.exports = function asyncemit() {
         each(stack);
       })
     );
-  })(listeners);
+  })(listeners.slice());
 
   return this;
 };
