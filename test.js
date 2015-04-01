@@ -7,7 +7,7 @@ describe('asyncemit', function () {
     , EventEmitter = require('eventemitter3');
 
   beforeEach(function () {
-    ee = new EventEmitter;
+    ee = new EventEmitter();
     ee.asyncemit = asyncemit;
   });
 
@@ -19,7 +19,7 @@ describe('asyncemit', function () {
     assume(asyncemit).is.a('function');
   });
 
-  it('returns it self instead of a boolean', function () {
+  it('returns itself instead of a boolean', function () {
     assume(ee.asyncemit('foo', function () {})).equals(ee);
   });
 
@@ -122,6 +122,20 @@ describe('asyncemit', function () {
         assume(flow).equals('12');
         next();
       });
+    });
+  });
+
+  it('doesn\'t change the original array of listeners', function (next) {
+    ee.on('foo', function () {});
+    ee.on('foo', function () {});
+    ee.on('foo', function () {});
+
+    assume(ee.listeners('foo')).has.length(3);
+
+    ee.asyncemit('foo', 'bar', function (err) {
+      assume(err).is.undefined();
+      assume(ee.listeners('foo')).has.length(3);
+      next();
     });
   });
 });
