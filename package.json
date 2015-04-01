@@ -1,6 +1,6 @@
 {
   "name": "asyncemit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Asynchronously emit event an event based on the arguments length.",
   "main": "index.js",
   "scripts": {
