@@ -14,33 +14,34 @@ npm install --save asyncemit
 
 ## Usage
 
-To make this pattern work we have make a couple assumptions about the way this
-module is used:
+To make this pattern work there are a couple of preconditions that need to be
+satisfied:
 
-1. This method should be added on either a class that inherits from the
+1. The method should be added on either a class that inherits from the
    EventEmitter or on a new EventEmitter instance.
-2. The amount of arguments you pass is the same amount of arguments required for
-   your event to be seen as async emitter.
+2. The number of arguments expected by a listener function should match the
+   number of arguments passed to the `asyncemit` method excluding the event
+   name.
 
 See the following example:
 
 ```js
-var asyncemit = require('asyncemit')
-  , EventEmitter = require('eventemitter3');
+var EventEmitter = require('eventemitter3')
+  , asyncemit = require('asyncemit');
 
 var ee = new EventEmitter();
 ee.asyncemit = asyncemit;
 
 //
-// The next `foo` listeners will not be executed until this `next` is called. 
+// The next `foo` listeners will not be executed until `next` is called.
 //
 ee.on('foo', function (arg, next) {
-  // do things with arg?
+  // Do things with arg?
   next();
 });
 
 //
-// Still executed, by sync
+// Still executed, but synchronously.
 //
 ee.on('foo', function (arg) {
 
@@ -49,11 +50,11 @@ ee.on('foo', function (arg) {
 ee.asyncemit('foo', 'bar', function (err) {
   //
   // The error argument will be set if one of the async listeners called the
-  // `next` callback with an `error` arugment.
+  // `next` callback with an `error` argument.
   //
 });
 ```
 
 ## License
 
-MIT
+[MIT](LICENSE)
