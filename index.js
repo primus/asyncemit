@@ -17,7 +17,7 @@ module.exports = function asyncemit() {
     , selfie = this
     , listeners;
 
-  listeners = (this._events || {})[event] || [];
+  listeners = (this._events || {})['~'+ event] || [];
   if (listeners && !Array.isArray(listeners)) {
     listeners = [ listeners ];
   }
