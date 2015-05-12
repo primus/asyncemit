@@ -2,7 +2,7 @@
 
 var prefix = require('eventemitter3').prefixed
   , toString = Object.prototype.toString
-  , slice = Array.prototype.slice
+  , slice = Array.prototype.slice;
 
 /**
  * Get an accurate type description of whatever we receive.
@@ -32,7 +32,7 @@ module.exports = function asyncemit() {
     , selfie = this
     , listeners;
 
-  listeners = (this._events || {})[prefix ? '~'+ event : event];
+  listeners = (this._events || {})[prefix ? prefix + event : event];
 
   if (!listeners) return fn(), this;
   if (type(listeners) !== 'array') listeners = [ listeners ];
