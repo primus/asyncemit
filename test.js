@@ -38,6 +38,10 @@ describe('asyncemit', function () {
     });
   });
 
+  it('calls the callback when no listeners are available', function (next) {
+    ee.asyncemit('foo', 'bar', next);
+  });
+
   it('works with full async emitters', function (next) {
     next = assume.plan(2, next);
     var foo;

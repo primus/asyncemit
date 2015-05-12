@@ -1,6 +1,6 @@
 {
   "name": "asyncemit",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Asynchronously emit event an event based on the arguments length.",
   "main": "index.js",
   "scripts": {
@@ -30,9 +30,11 @@
   "homepage": "https://github.com/primus/asyncemit",
   "devDependencies": {
     "assume": "1.2.x",
-    "eventemitter3": "1.0.x",
     "istanbul": "0.3.x",
     "mocha": "2.2.x",
     "pre-commit": "1.0.x"
+  },
+  "peerDependencies": {
+    "eventemitter3": ">=1.1.0"
   }
 }
