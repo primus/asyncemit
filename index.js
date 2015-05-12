@@ -1,5 +1,20 @@
 'use strict';
 
+var prefix = require('eventemitter3').prefixed
+  , toString = Object.prototype.toString
+  , slice = Array.prototype.slice
+
+/**
+ * Get an accurate type description of whatever we receive.
+ *
+ * @param {Mixed} what What ever we receive
+ * @returns {String} Description of what ever it is.
+ * @api private
+ */
+function type(what) {
+  return toString.call(what).slice(8, -1).toLowerCase();
+}
+
 /**
  * Asynchronously emit an event.
  *
@@ -10,17 +25,17 @@
  * @api public
  */
 module.exports = function asyncemit() {
-  var args = Array.prototype.slice.call(arguments, 0)
+  var args = slice.call(arguments, 0)
     , event = args.shift()
     , async = args.length
     , fn = args.pop()
     , selfie = this
     , listeners;
 
-  listeners = (this._events || {})['~'+ event] || [];
-  if (listeners && !Array.isArray(listeners)) {
-    listeners = [ listeners ];
-  }
+  listeners = (this._events || {})[prefix ? '~'+ event : event];
+
+  if (!listeners) return fn(), this;
+  if (type(listeners) !== 'array') listeners = [ listeners ];
 
   /**
    * Simple async helper utility.
