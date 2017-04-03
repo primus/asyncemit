@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/primus/asyncemit",
   "devDependencies": {
-    "assume": "~1.4.1",
+    "assume": "~1.5.0",
     "eventemitter3": "~2.0.2",
     "istanbul": "~0.4.5",
     "mocha": "~3.2.0",
