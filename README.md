@@ -1,6 +1,6 @@
 # asyncemit
 
-[![Version npm](http://img.shields.io/npm/v/asyncemit.svg?style=flat-square)](https://www.npmjs.com/package/asyncemit)[![Build Status](https://img.shields.io/github/workflow/status/primus/asyncemit/CI/master?label=CI&style=flat-square)](https://github.com/primus/asyncemit/actions?query=workflow%3ACI+branch%3Amaster)[![Coverage Status](http://img.shields.io/coveralls/primus/asyncemit/master.svg?style=flat-square)](https://coveralls.io/r/primus/asyncemit?branch=master)
+[![Version npm](http://img.shields.io/npm/v/asyncemit.svg?style=flat-square)](https://www.npmjs.com/package/asyncemit)[![CI](https://img.shields.io/github/actions/workflow/status/primus/asyncemit/ci.yml?branch=master&label=CI&style=flat-square)](https://github.com/primus/asyncemit/actions?query=workflow%3ACI+branch%3Amaster)[![Coverage Status](http://img.shields.io/coveralls/primus/asyncemit/master.svg?style=flat-square)](https://coveralls.io/r/primus/asyncemit?branch=master)
 
 The `asyncemit` allows you to emit an event to an EventEmitter3 asynchronously.
 
